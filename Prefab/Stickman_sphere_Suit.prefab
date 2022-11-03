@@ -286,6 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6003718565281287148}
+  - component: {fileID: 2123460452}
   m_Layer: 3
   m_Name: Skelet.c
   m_TagString: Untagged
@@ -309,6 +310,19 @@ Transform:
   m_Father: {fileID: 6003718565281287150}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2123460452
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6003718565281519500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2163099, y: 1, z: 1.8687357}
+  m_Center: {x: 0.031473756, y: 1.7756597e-14, z: 0.9136528}
 --- !u!1 &6003718565281519502
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +334,7 @@ GameObject:
   - component: {fileID: 6003718565281287150}
   - component: {fileID: 6003718565290877990}
   - component: {fileID: 8162032227542246233}
+  - component: {fileID: 1690504094}
   m_Layer: 3
   m_Name: Stickman_sphere_Suit
   m_TagString: Untagged
@@ -385,6 +400,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1690504094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6003718565281519502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2151086, y: 1.8285939, z: 1}
+  m_Center: {x: 0.03302014, y: 0.93275565, z: 0}
 --- !u!1 &6003718565281519504
 GameObject:
   m_ObjectHideFlags: 0
