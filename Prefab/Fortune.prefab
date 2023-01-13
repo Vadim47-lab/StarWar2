@@ -726,7 +726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 166
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1799,9 +1799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8b1b357efb6964c884603b0793ad04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textCoins: {fileID: 1930146289}
   _textCountCoins: {fileID: 0}
-  _imageandtextCoin: {fileID: 3506042843129664677}
   _coins: {fileID: 174879557}
   _wheelFortune: {fileID: 8169087508235752978}
 --- !u!114 &8169087508235752978
@@ -1816,6 +1814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba59dda1b0fdebc4396544bdb6636e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _textCoins: {fileID: 1930146289}
   _imageandtextCoin: {fileID: 3506042843129664677}
   _coins: {fileID: 174879557}
 --- !u!114 &9045266873219010235

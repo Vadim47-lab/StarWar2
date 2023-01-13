@@ -4,6 +4,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     [SerializeField] private TMP_Text _textCountCoins;
+    [SerializeField] private GameObject _imageandtextCoin;
     [SerializeField] private WheelFortune _wheelFortune;
 
     private int _countCoins;
@@ -25,6 +26,7 @@ public class Coin : MonoBehaviour
 
             if (_gameSeconds >= _secondsShowCoins)
             {
+                _imageandtextCoin.SetActive(false);
                 ShowCoins();
             }
         }

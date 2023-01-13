@@ -18,6 +18,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject _textMove;
     [SerializeField] private GameObject _imageandtextCoin;
     [SerializeField] private GameObject _coins;
+    [SerializeField] private GameObject _background;
 
     private void Update()
     {
@@ -42,6 +43,7 @@ public class Menu : MonoBehaviour
         _spinButton.SetActive(false);
         _wheelFortune.SetActive(true);
         _closeWheelFortuneButton.SetActive(true);
+        _background.SetActive(true);
     }
 
     public void CloseWheelFortune()
@@ -56,6 +58,7 @@ public class Menu : MonoBehaviour
         _closeWheelFortuneButton.SetActive(false);
         _imageandtextCoin.SetActive(false);
         _coins.SetActive(false);
+        _background.SetActive(false);
     }
 
     public void OpenShop()
