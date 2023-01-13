@@ -1,10 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 public class WheelFortune : MonoBehaviour
 {
     [SerializeField] private TMP_Text _textCoins;
+    [SerializeField] private GameObject _imageandtextCoin;
     [SerializeField] private GameObject _coins;
 
     private Animator _animator;
@@ -39,6 +41,7 @@ public class WheelFortune : MonoBehaviour
 
     public void SpinWheelFortune()
     {
+        _imageandtextCoin.SetActive(false);
         _coins.SetActive(false);
         _startTime = false;
         _randomAnimation = Random.Range(0, 9);
@@ -80,6 +83,7 @@ public class WheelFortune : MonoBehaviour
     private void ShowCoins()
     {
         _coins.SetActive(true);
+        _imageandtextCoin.SetActive(true);
         _textCoins.text = "" + _prize;
         _gameSeconds = 0;
         _startTime = false;
