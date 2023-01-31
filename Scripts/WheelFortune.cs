@@ -8,6 +8,11 @@ public class WheelFortune : MonoBehaviour
     [SerializeField] private TMP_Text _textCoins;
     [SerializeField] private GameObject _imageandtextCoin;
     [SerializeField] private GameObject _coins;
+    [SerializeField] private GameObject _fonAds;
+    [SerializeField] private GameObject _ads1;
+    [SerializeField] private GameObject _ads2;
+    [SerializeField] private GameObject _ads3;
+    [SerializeField] private Coin _coin;
 
     public event UnityAction<int> CoinsChanged;
 
@@ -16,13 +21,26 @@ public class WheelFortune : MonoBehaviour
     "_fourth1500Ñoins", "_second1000Ñoins", "_second1500Ñoins", "_second2000coins", "_third1500Ñoins", "_third2000Ñoins"};
     private readonly int[] _positionAnimation = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     private int _randomAnimation;
+    private int _randomAds;
     private int _prize;
     private readonly float _secondsGetCoins = 5;
     private float _gameSeconds;
-    private bool _startAnimation;
+    private bool _startAnimation; 
+    private bool _blockButtonSpin;
+
+    private void OnEnable()
+    {
+        _coin.ButtonSpinChanged += UnlockButtonSpin;
+    }
+
+    private void OnDisable()
+    {
+        _coin.ButtonSpinChanged -= UnlockButtonSpin;
+    }
 
     private void Start()
     {
+        _blockButtonSpin = false;
         _animator = GetComponent<Animator>();
     }
 
@@ -45,44 +63,71 @@ public class WheelFortune : MonoBehaviour
         }
     }
 
+    public void WatchAds()
+    {
+        _fonAds.SetActive(true);
+        _randomAds = Random.Range(0, 2);
+        switch (_randomAds)
+        {
+            case 0:
+                _ads1.SetActive(true);
+                break;
+            case 1:
+                _ads2.SetActive(true);
+                break;
+            case 2:
+                _ads3.SetActive(true);
+                break;
+        }
+    }
+
     public void SpinWheelFortune()
     {
-        _imageandtextCoin.SetActive(false);
-        _coins.SetActive(false);
-        _startAnimation = false;
-        _randomAnimation = Random.Range(0, 9);
-
-        for (int i = 0; i < _animationWheelNumber.Length; i++)
+        if (_blockButtonSpin == false)
         {
-            if (_randomAnimation == i)
+            _imageandtextCoin.SetActive(false);
+            _coins.SetActive(false);
+            _startAnimation = false;
+            _blockButtonSpin = true;
+            _randomAnimation = Random.Range(0, 9);
+
+            for (int i = 0; i < _animationWheelNumber.Length; i++)
             {
-                _startAnimation = true;
-                _animator.SetBool(_animationWheelNumber[i], true);
-
-                if (i == _positionAnimation[0])
+                if (_randomAnimation == i)
                 {
-                    _prize = 2500;
-                }
+                    _startAnimation = true;
+                    _animator.SetBool(_animationWheelNumber[i], true);
 
-                else if ((i == _positionAnimation[1]) || (i == _positionAnimation[5]))
-                {
-                    _prize = 1000;
-                }
+                    if (i == _positionAnimation[0])
+                    {
+                        _prize = 2500;
+                    }
 
-                else if ((i == _positionAnimation[3]) || (i == _positionAnimation[7]) || (i == _positionAnimation[9]))
-                {
-                    _prize = 2000;
-                }
+                    else if ((i == _positionAnimation[1]) || (i == _positionAnimation[5]))
+                    {
+                        _prize = 1000;
+                    }
 
-                else if ((i == _positionAnimation[2]) || (i == _positionAnimation[4]) || (i == _positionAnimation[6]) || (i == _positionAnimation[8]))
-                {
-                    _prize = 1500;
+                    else if ((i == _positionAnimation[3]) || (i == _positionAnimation[7]) || (i == _positionAnimation[9]))
+                    {
+                        _prize = 2000;
+                    }
+
+                    else if ((i == _positionAnimation[2]) || (i == _positionAnimation[4]) || (i == _positionAnimation[6]) || (i == _positionAnimation[8]))
+                    {
+                        _prize = 1500;
+                    }
                 }
-            }
-            else
-            {
-                _animator.SetBool(_animationWheelNumber[i], false);
+                else
+                {
+                    _animator.SetBool(_animationWheelNumber[i], false);
+                }
             }
         }
+    }
+
+    private void UnlockButtonSpin(bool _blockButton)
+    {
+        _blockButtonSpin = _blockButton;
     }
 }
