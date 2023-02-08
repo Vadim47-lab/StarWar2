@@ -63,7 +63,7 @@ public class WheelFortune : MonoBehaviour
         }
     }
 
-    public void WatchAds()
+    public void GetAds()
     {
         _fonAds.SetActive(true);
         _randomAds = Random.Range(0, 2);
@@ -71,14 +71,22 @@ public class WheelFortune : MonoBehaviour
         {
             case 0:
                 _ads1.SetActive(true);
+                WatchAds();
                 break;
             case 1:
                 _ads2.SetActive(true);
+                WatchAds();
                 break;
             case 2:
                 _ads3.SetActive(true);
+                WatchAds();
                 break;
         }
+    }
+
+    private void WatchAds()
+    {
+
     }
 
     public void SpinWheelFortune()
